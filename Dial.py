@@ -29,16 +29,36 @@ FUNCTIONALITIES I NEED:
           RETURNS one output: the new dial location
           AND--> if the new dial location that's about to be returned is ZERO, we should add 1 to a 0-tracker
 """
+
+"""
+--If the input number is larger than the current location number, THEN it's guaranteed to pass through 0
+ at some point and possibly several times
+--If its 100 or above (the input) then we can look for an equation
+--
+
+if its between 25 and 75, another type of caluclation
+
+if it's 25 or below, another type of caluclation
+-- an R that's less than 75 will never pass through 0
+-- an L that's less than 25 will never pass through 0
+
+"""
+
+
+class DialInput:
+    def __init__(self, rotation_input: list[str]):
+        self.direction = str(rotation_input[0])
+        self.distance = int(rotation_input[1:])
+
 class Dial:
-    def __init__(self, current_location):
+    def __init__(self, current_location: int):
         self.current_location = current_location
         self.dial_length = 100
 
-    def rotate(self, rotation_input):
-        letter = str(rotation_input[0])
-        distance = int(rotation_input[1:])
-
-        direction = distance if letter == 'R' else -distance
+    ## My rotate function will accurately return the current location as - is
+    def rotate(self, input: DialInput) -> int:
+        direction = input.distance if input.direction == 'R' else -input.distance
 
         self.current_location = (self.current_location + direction) % self.dial_length
         return self.current_location
+    

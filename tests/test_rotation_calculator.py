@@ -1,5 +1,5 @@
 import pytest
-from day1.Dial import Dial
+from Dial import Dial, DialInput
 
 @pytest.mark.parametrize(
     "current_location, rotation_input, expected_location",
@@ -13,7 +13,8 @@ from day1.Dial import Dial
 )
 def test_single_rotation(current_location, rotation_input, expected_location):
     dial = Dial(current_location)
-    new_location = dial.rotate(rotation_input)
+    dial_input = DialInput(rotation_input)
+    new_location = dial.rotate(dial_input)
     assert new_location == expected_location
 
 
@@ -21,7 +22,8 @@ def test_rotate_dial_with_multiple_inputs():
     rotation_inputs = ["R20", "L10", "R80"]
     dial = Dial(50)
     for input in rotation_inputs:
-        dial.rotate(input)
+        dial_input = DialInput(input)
+        dial.rotate(dial_input)
 
     location = dial.current_location
     assert location == 40

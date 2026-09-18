@@ -1,6 +1,6 @@
 import pandas as pd
 import os
-from day1.Dial import Dial
+from Dial import Dial, DialInput
 
 def crack_the_code():
     dial = Dial(50)
@@ -13,9 +13,10 @@ def crack_the_code():
     counter = 0
 
     for input in rotation_inputs:
-        dial.rotate(input)
-        updated_location = dial.current_location
+        dial_input = DialInput(input)
+        updated_location = dial.rotate(dial_input)
+
         if updated_location == 0:
             counter = counter + 1
-
+            
     return f'(THIS IS THE NUMBER OF 0s!! {counter})'
