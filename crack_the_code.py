@@ -14,8 +14,15 @@ def crack_the_code():
 
     for input in rotation_inputs:
         dial_input = DialInput(input)
+
+        # 
+
+        zeros_passed = dial.count_zero_passes(dial_input)
+        if zeros_passed > 0:
+            counter = counter + zeros_passed
         updated_location = dial.rotate(dial_input)
 
+        # CURRENTLY -- the updated location code returns the number of times the rotation LANDS on 0
         if updated_location == 0:
             counter = counter + 1
             
