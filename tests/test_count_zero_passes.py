@@ -1,5 +1,5 @@
 import pytest
-from Dial import Dial, DialInput
+from Dial import Dial, RotationInstruction
 
 """(0, "R787", 87, 7),
         (50, "R150", 0, 1),
@@ -21,7 +21,7 @@ from Dial import Dial, DialInput
 )
 def test_input_over_100(current_location, rotation_input, expected_location, expected_zeros_passed):
     dial = Dial(current_location)
-    dial_input = DialInput(rotation_input)
+    dial_input = RotationInstruction(rotation_input)
 
     zeros_passed = dial.count_zero_passes(dial_input)
 
@@ -46,7 +46,7 @@ def test_input_over_100(current_location, rotation_input, expected_location, exp
 )
 def test_left_rotation_zero_passes(current_location, rotation_input, expected_location, expected_zeros_passed):
     dial = Dial(current_location)
-    dial_input = DialInput(rotation_input)
+    dial_input = RotationInstruction(rotation_input)
 
     zeros_passed = dial.count_zero_passes(dial_input)
 
@@ -64,7 +64,7 @@ def test_left_rotation_zero_passes(current_location, rotation_input, expected_lo
 )
 def test_right_rotation_zero_passes(current_location, rotation_input, expected_location, expected_zeros_passed):
     dial = Dial(current_location)
-    dial_input = DialInput(rotation_input)
+    dial_input = RotationInstruction(rotation_input)
 
     zeros_passed = dial.count_zero_passes(dial_input)
 
