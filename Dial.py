@@ -42,7 +42,7 @@ class Dial:
         return zeros_passed
 
 
-    def will_pass_zero(self, rotation_direction, current_location, remaining_distance):
+    def will_pass_zero(self, rotation_direction: str, current_location: int, remaining_distance: int) -> bool:
         if rotation_direction == LEFT:
             return current_location > 0 and remaining_distance > current_location
         else:
