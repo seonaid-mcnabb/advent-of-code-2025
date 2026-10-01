@@ -1,7 +1,7 @@
 import pytest
-from Dial import Dial, RotationInstruction
+from day_1.Dial import Dial, RotationInstruction
 
-"""(0, "R787", 87, 7),
+"""     (0, "R787", 87, 7),
         (50, "R150", 0, 1),
         (0, "R100", 0, 0),
         (0, "R800", 0, 7),

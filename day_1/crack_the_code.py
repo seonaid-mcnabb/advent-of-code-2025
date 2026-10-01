@@ -1,6 +1,6 @@
 import pandas as pd
 import os
-from Dial import Dial, RotationInstruction
+from day_1.Dial import Dial, RotationInstruction
 
 def crack_the_code():
     dial = Dial(50)
@@ -18,6 +18,7 @@ def crack_the_code():
         zeros_passed = dial.count_zero_passes(dial_input)
         if zeros_passed > 0:
             counter = counter + zeros_passed
+            
         updated_location = dial.rotate(dial_input)
 
         # CURRENTLY -- the updated location code returns the number of times the rotation LANDS on 0

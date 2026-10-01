@@ -1,5 +1,5 @@
 import pytest
-from Dial import Dial, RotationInstruction
+from day_1.Dial import Dial, RotationInstruction
 
 @pytest.mark.parametrize(
     "current_location, rotation_input, expected_location",
