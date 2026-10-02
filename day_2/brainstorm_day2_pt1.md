@@ -44,7 +44,7 @@ Given this constraint, off the bat I can conclude that:
 
 ```
 89,45 | 1,761 x (start number, not invalid)
-89,45 |8,945 - 1 (allowed, in range as tgus number is greater than starting number)
+89,45 |8,945 - 1 (allowed, in range as this number is greater than starting number)
 89,46 |8,946 2
 89,47 |8,947 3
 89,48 |8,948 4
@@ -246,10 +246,8 @@ process(section_2_start, section_2_end)
 ```
 Since I plan for my processing method to exit early if the number has an odd number of digits then, by separting ranges into sections, I can make sure the whole original range is handled properly. For now, anyway, since I know my digit input will not stretch over several digit-length bounds.
 
-### Summary of patterns:
+### Summary of patterns / constraints:
 1. An invalid number must be even
-2. And invalid number is determined entirely by its first half, therefore invalid numbers can be represented by their first half
+2. An invalid number is determined entirely by its first half, therefore invalid numbers can be represented by their first half
 3. Range boundaries will determine which first halves are valid for generation
 4. Ranges that cross digit-length boundaries need to be split
-
-    

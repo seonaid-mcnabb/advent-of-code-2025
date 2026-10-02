@@ -9,8 +9,6 @@ def crack_the_code_day_2():
         range_inputs = f.read().strip().split(',')
 
     product = IDHandler()
-    result = product.filter_invalid_ids(range_inputs)
+    result = product.filter_and_sum_invalid_ids(range_inputs)
 
-    print(result)
-    assert result == 0
     return result

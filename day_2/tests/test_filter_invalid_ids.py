@@ -4,14 +4,15 @@ from day_2.IdHandler import IDHandler
 
 
 @pytest.mark.parametrize(
-    "id_range_list, expected_invalid_ids",
+    "id_range_list, expected_sum",
     [
-        (["2323-5656"], [11, 22]),
+        (["10-23"], 33),
+        (["1000-1500"], 6060),
+        (["89451761-89562523"], 984598450)
     ]
 )
-def test_filters_invalid_ids(id_range_list, expected_invalid_ids):
+def test_filters_invalid_ids(id_range_list, expected_sum):
     product = IDHandler()
-    invalid_ids= product.filter_invalid_ids(id_range_list)
-    invalid_id_sum = product.sum_invalid_ids(invalid_ids)
+    invalid_id_sum= product.filter_and_sum_invalid_ids(id_range_list)
 
-    assert invalid_ids == expected_invalid_ids
+    assert invalid_id_sum == expected_sum
