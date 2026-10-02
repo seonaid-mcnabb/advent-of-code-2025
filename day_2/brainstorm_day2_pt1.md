@@ -6,7 +6,7 @@ For day 2 code challenge we're tasked with finding all "invalid" numbers within 
 
 Given this constraint, off the bat I can conclude that:
 
-* If a number is composed of an **odd** number of digits, then it will never meet this condition, so I'll start looking for an identifiable patter in numbers with an even number of total digits
+* If a number is composed of an **odd** number of digits, then it will never meet this condition, so I'll start looking for an identifiable pattern in numbers with an even number of total digits
 
 ### Analyzing specific ranges for patterns in even-digited numbers
 
