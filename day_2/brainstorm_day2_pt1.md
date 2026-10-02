@@ -17,10 +17,6 @@ Given this constraint, off the bat I can conclude that:
 
 **Conclusion**: 2 numbers meet the invalid condition within this range
 
-```
-75 - 52
-7 - 5 = 2
-```
 
 ### Range 11-22 (where invalid numbers marked with x)
 ```
