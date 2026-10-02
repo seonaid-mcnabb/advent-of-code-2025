@@ -24,18 +24,18 @@ Given this constraint, off the bat I can conclude that:
 ```
 **Conclusion**: 2 invalid numbers in 11-22 range
 
-### Range 1112-1649 (where invalid numbers marked with x)
+### Range 1112-1649
 ```
 1112 - 1200 , no invalid number possible
 1200-1300 , 1212 would be invalid 
 1300-1400, 1313 would be invalid
 1400-1500, 1414 would be invalid
 1500 - 1600, 1515 would be invalid
-1600-1700, 1616 would be invalid
+1600-1700, 1616 would be invalid and is in range, as becomes before end range 1649
 ```
 **Conclusion**: 5 invalid numbers in 1112-1649
 
-### Range 89451761-89,562,523 (where invalid numbers marked with x)
+### Range 89451761-89562523
 **Condition**: I know the length of my numbers at each end of the range is 8 digits. That being the case, to have an "invalid number" for this range, 4 digits need to repeat themselves twice.
 
 ```
@@ -54,8 +54,6 @@ Given this constraint, off the bat I can conclude that:
 8956  | 2,523 x (end of my provided range, we'll never reach 8956,8956)
 ```
 **Conclusion**: there are 11 invalid numbers in range 89451761-89,562,523
-
-8956 - 8945 = 11
 
 ## Patterns in common with first cases
 * I notice that I can (more or less) determine the number of invalid numbers that will be produced within a certain range by first: taking the end range number, and taking the first half of its digits. Next, I do the same thing with the beginning range number. To determine the number of possible pairs, I subtract the latter from the former. ie:
