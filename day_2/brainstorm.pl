@@ -144,3 +144,16 @@ range start
 EDGE CASES TO HAVE IN MIND
 1) Starting range might report an additional invalid number through subtraction, but not truly (ie. in case of 1213 start)
 2) The same applies to the ending range --> it may be below the number required to reach for invalidity
+
+5168-7482
+
+section start -  51
+section end - 74
+number of digits - 4
+can an invalid id exist here - yes
+first possible repeated-half number - 5252
+last possible repeated half number - 7474
+
+
+1. Calculate bounds before entering loop
+2. loop for the established bounds

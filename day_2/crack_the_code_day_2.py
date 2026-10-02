@@ -1,4 +1,5 @@
 import os
+from day_2.GiftshopProduct import GiftShopProduct
 
 def crack_the_code_day_2():
     base_dir = os.path.dirname(__file__)
@@ -7,5 +8,9 @@ def crack_the_code_day_2():
         next(f)  # skip the "input" header
         range_inputs = f.read().strip().split(',')
 
-    print(range_inputs)
-    return range_inputs
+    product = GiftShopProduct()
+    result = product.filter_invalid_ids(range_inputs)
+
+    print(result)
+    assert result == 0
+    return result

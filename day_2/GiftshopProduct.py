@@ -15,8 +15,6 @@ Output:
 --> once that list is obtained, we must sum them all together.
 """
 
-from tokenize import String
-
 
 class GiftShopProduct:
     def __init__(self):
@@ -24,52 +22,62 @@ class GiftShopProduct:
 
     def filter_invalid_ids(self, id_list: list[str]) -> list[int]:
         invalid_ids = []
-        latest_invalid_number = 0
 
         for id in id_list:
             start, end = id.split('-')
             start_length = len(start)
             end_length = len(end)
 
-            ## Immediate exit in the case that both numbers in range have odd digits
-            if start_length % 2 != 0 and end_length % 2 != 0:
-                return
+            if start_length == end_length:
+                section_1_start = start
+                section_1_end = end
+                invalid_ids.extend(self.process_sections(section_1_start, section_1_end)
+)
 
-            # If my length is four, I only want to grab half of each (start and end)
-            start_first_half = int(start[:len(start) // 2])
-            start_second_half = int(start[len(start) // 2:])
-            end_first_half = int(end[:len(end) // 2])
-            end_second_half = int(end[len(end) // 2:])
-            
-            # We should calculate this for the number of times we want to loop
-            expected_steps = end_first_half - start_first_half
-            # Edge cases when to add another step or subtract it
-            start_digit_in_invalid_range = start_first_half >= start_second_half
-            if start_digit_in_invalid_range:
-                expected_steps += 1
-
-            if end_first_half > end_second_half:
-                expected_steps -=1
-
-
-            power = len(str(start_first_half))
-            if start_digit_in_invalid_range:
-                latest_invalid_number = (start_first_half * 10 ** power) + start_first_half
-                invalid_ids.append(latest_invalid_number)
             else:
-                new_num = start_first_half + 1
-                latest_invalid_number = new_num * 10 ** power + new_num
-                invalid_ids.append(latest_invalid_number)
+                factor = 10 ** start_length
+                largest_poss_num = factor -1
+                section_1_start = start
+                section_1_end = str(min(largest_poss_num, int(end)))
+                section_2_start = str(int(section_1_end) + 1)
+                section_2_end = end
+                invalid_ids.extend(self.process_sections(section_1_start, section_1_end))
+                invalid_ids.extend(self.process_sections(section_2_start, section_2_end))
 
-            increase_rate = 10 ** power + 1
+        result = sum(invalid_ids)
+        print(result)
 
-            for i in range (expected_steps -1):
-               latest_invalid_number = latest_invalid_number + increase_rate
-               invalid_ids.append(latest_invalid_number)
+        return result
 
-            print(invalid_ids)
+    def process_sections(self, section_1_start, section_1_end):
+                invalid_ids = []
+                if len(section_1_start) % 2 != 0:
+                     return []
+                start_first_half = int(section_1_start[:len(section_1_start) // 2])
+                start_second_half = int(section_1_start[len(section_1_start) // 2:])
+                end_first_half = int(section_1_end[:len(section_1_end) // 2])
+                end_second_half = int(section_1_end[len(section_1_end) // 2:])
+        
+                factor = len(str(start_first_half))
+        
+                # Establish the bounds
+        
+                if start_first_half >= start_second_half:
+                    first_valid_half = start_first_half
+                else:
+                    first_valid_half = start_first_half + 1
+        
+                if end_first_half <= end_second_half:
+                    last_valid_half = end_first_half
+                else:
+                    last_valid_half = end_first_half - 1
+        
+                increase_rate = 10 ** factor + 1
+        
+                for half in range(first_valid_half, last_valid_half + 1):
+                    invalid_id = half * increase_rate
+                    invalid_ids.append(invalid_id)
 
-        return len(invalid_ids)
+                print(invalid_ids)
 
-    def sum_invalid_ids(self, invalid_ids: list[int]) -> int:
-        return 0
+                return invalid_ids
