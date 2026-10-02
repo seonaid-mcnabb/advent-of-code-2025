@@ -40,17 +40,17 @@ Given this constraint, off the bat I can conclude that:
 
 ```
 89,45 | 1,761 x (start number, not invalid)
-89,45 |8,945 - 1 (allowed, in range as this number is greater than starting number)
-89,46 |8,946 2
-89,47 |8,947 3
-89,48 |8,948 4
-89,49 |8,949 5
-89,50 |8,950 6
-89,51 |8,951 7
+89,45 | 8,945 - 1 (allowed, in range as this number is greater than starting number)
+89,46 | 8,946 2
+89,47 | 8,947 3
+89,48 | 8,948 4
+89,49 | 8,949 5
+89,50 | 8,950 6
+89,51 | 8,951 7
 89,52 | 8,952 8
 89,53 | 8,953 9
 89,54 | 8,954 10
-89,55 |8,955 11
+89,55 | 8,955 11
 8956  | 2,523 x (end of my provided range, we'll never reach 8956,8956)
 ```
 **Conclusion**: there are 11 invalid numbers in range 89451761-89,562,523
