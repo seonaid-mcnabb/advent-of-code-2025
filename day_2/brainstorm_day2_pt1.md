@@ -1,4 +1,4 @@
-## Analysis of Palindromic Half-Pattern / Even-Digit Ranges
+## Analysis Half-Pattern / Even-Digit Ranges
 
 For day 2 code challenge we're tasked with finding all "invalid" numbers within a range of numbers, and then summing them together to discover the password. We get a list of ranges as input and, for each range of numbers, one condition must be met for a number within that range to be considered invalid:
 
