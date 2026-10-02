@@ -1,6 +1,6 @@
 import pytest
 
-from day_2.GiftshopProduct import GiftShopProduct
+from day_2.IdHandler import IDHandler
 
 
 @pytest.mark.parametrize(
@@ -10,7 +10,7 @@ from day_2.GiftshopProduct import GiftShopProduct
     ]
 )
 def test_filters_invalid_ids(id_range_list, expected_invalid_ids):
-    product = GiftShopProduct()
+    product = IDHandler()
     invalid_ids= product.filter_invalid_ids(id_range_list)
     invalid_id_sum = product.sum_invalid_ids(invalid_ids)
 

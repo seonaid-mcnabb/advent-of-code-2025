@@ -1,5 +1,5 @@
 import os
-from day_2.GiftshopProduct import GiftShopProduct
+from day_2.IdHandler import IDHandler
 
 def crack_the_code_day_2():
     base_dir = os.path.dirname(__file__)
@@ -8,7 +8,7 @@ def crack_the_code_day_2():
         next(f)  # skip the "input" header
         range_inputs = f.read().strip().split(',')
 
-    product = GiftShopProduct()
+    product = IDHandler()
     result = product.filter_invalid_ids(range_inputs)
 
     print(result)
