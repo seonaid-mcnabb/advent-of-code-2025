@@ -1,19 +1,14 @@
 class IDHandler:
-    def __init__(self):
-        self.name = "ID_handler"
-
-    def filter_and_sum_invalid_ids(self, id_range_list: list[str]) -> list[int]:
+    def sum_invalid_ids(self, id_range_list: list[str]) -> int:
         invalid_ids = []
 
-        for range in id_range_list:
-            range_start, range_end = range.split('-')
+        for id_range in id_range_list:
+            range_start, range_end = id_range.split('-')
             start_num_length = len(range_start)
             end_num_length = len(range_end)
 
             if start_num_length == end_num_length:
-                start = range_start
-                end = range_end
-                invalid_ids.extend(self.process(start, end))
+                invalid_ids.extend(self.find_invalid_ids_in_range(range_start, range_end))
 
             else:
                 next_digit_boundary = 10 ** start_num_length
@@ -22,15 +17,14 @@ class IDHandler:
                 end = str(largest_poss_num)
                 section_2_start = str(next_digit_boundary)
                 section_2_end = range_end
-                invalid_ids.extend(self.process(start, end))
-                invalid_ids.extend(self.process(section_2_start, section_2_end))
+                invalid_ids.extend(self.find_invalid_ids_in_range(start, end))
+                invalid_ids.extend(self.find_invalid_ids_in_range(section_2_start, section_2_end))
 
         result = sum(invalid_ids)
-        print(result)
 
         return result
 
-    def process(self, start, end):
+    def find_invalid_ids_in_range(self, start: str, end: str) -> list[int]:
                 invalid_ids = []
                 range_has_odd_digits = len(start) % 2 != 0
                 if range_has_odd_digits:

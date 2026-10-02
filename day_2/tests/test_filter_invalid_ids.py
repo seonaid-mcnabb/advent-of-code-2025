@@ -13,6 +13,6 @@ from day_2.IdHandler import IDHandler
 )
 def test_filters_invalid_ids(id_range_list, expected_sum):
     product = IDHandler()
-    invalid_id_sum= product.filter_and_sum_invalid_ids(id_range_list)
+    invalid_id_sum= product.sum_invalid_ids(id_range_list)
 
     assert invalid_id_sum == expected_sum
